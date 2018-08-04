@@ -1,5 +1,5 @@
 # Windows10X64-1803-POC
-This is a poc to trigger a bug on windows 10 x64 1803 from win32kbase by kaspersky
+This is a poc to trigger a bug on windows 10 x64 1803 from win32kbase by Kaspersky
 ## Getting Started
 
 ### Requirement
@@ -10,7 +10,7 @@ This is a poc to trigger a bug on windows 10 x64 1803 from win32kbase by kaspers
 	
 	2) Any Application such as Kaspersky (kis19.0.0.1088aen_14170.exe) that set W32kEtwEnabledKeyword & 0x400 to 1
 
-### Before execute poc, kaspersky must be running and after that show BSOD
+### Before execute poc, Kaspersky must be running and after that show BSOD
 	
 	system service exception 
 
@@ -105,4 +105,4 @@ This is a poc to trigger a bug on windows 10 x64 1803 from win32kbase by kaspers
 		0b 000000b6`6c1ffc30 00007ffe`846b1551 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : KERNEL32!BaseThreadInitThunk+0x14
 		0c 000000b6`6c1ffc60 00000000`00000000 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : ntdll!RtlUserThreadStart+0x21
 
-# ANY ONE TO EXPLOIT THIS POC?
+# ANYONE  TO EXPLOIT THIS POC?
