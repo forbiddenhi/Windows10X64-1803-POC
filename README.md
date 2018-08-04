@@ -15,7 +15,7 @@ Install Requirement:
 
 3) Analysis
 	
-	1) Registers
+	1)Registers
 		rdx is my address that passed by NtUserSetWindowsHookEx
 		1: kd> .cxr 0xffff8785cd67ef60
 
@@ -32,7 +32,7 @@ Install Requirement:
 
 		
 
-	2) Call Stack
+	2)Call Stack
 		0: kd> kv
 		 # Child-SP          RetAddr           : Args to Child                                                           : Call Site
 		00 ffff8785`cb19f950 fffff999`2aa4dfc2 : 00000000`00000000 00000000`0000ffff 00000000`00000000 fffff800`00000000 : win32kbase!EtwTraceAuditApiSetWindowsHookEx+0x37187
