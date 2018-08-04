@@ -31,7 +31,6 @@ Install Requirement:
 		fffff999`2ae4f807 488b4a08        mov     rcx,qword ptr [rdx+8] ds:002b:00000000`00010007=???????????????? ;controlable address
 
 		
-
 	2)Call Stack
 		0: kd> kv
 		 # Child-SP          RetAddr           : Args to Child                                                           : Call Site
