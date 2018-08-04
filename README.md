@@ -18,7 +18,7 @@ This is a poc to trigger a bug on windows 10 x64 1803 from win32kbase
 
 ### Analysis
 	
-	####Registers
+	1)Registers
 		rdx is my address that passed by NtUserSetWindowsHookEx
 		1: kd> .cxr 0xffff8785cd67ef60
 
