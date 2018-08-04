@@ -43,7 +43,7 @@ Install Requirement:
 		05 0000006b`0e1ff940 00007ffe`846b1551 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : KERNEL32!BaseThreadInitThunk+0x14
 		06 0000006b`0e1ff970 00000000`00000000 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : ntdll!RtlUserThreadStart+0x21
 
-	3) On the EtwTraceAuditApiSetWindowsHookEx, W32kEtwEnabledKeyword & 0x400 must be return 1 to call win32kbase!McTemplateK0qzppq 
+	3)On the EtwTraceAuditApiSetWindowsHookEx, W32kEtwEnabledKeyword & 0x400 must be return 1 to call win32kbase!McTemplateK0qzppq 
 
 		char __fastcall EtwTraceAuditApiSetWindowsHookEx(char a1, __int64 a2, int a3)
 		{
@@ -75,7 +75,7 @@ Install Requirement:
 		  return result;
 		}
 
-	4) Afeter call the win32kbase!McTemplateK0qzppq methode the win32kbase!McGenEventWriteKM methode called that it is a wrapper for nt!EtwWrite
+	4)Afeter call the win32kbase!McTemplateK0qzppq methode the win32kbase!McGenEventWriteKM methode called that it is a wrapper for nt!EtwWrite
 		__int64 __fastcall EtwWrite(unsigned __int64 RegHandle,
 			 _EVENT_DESCRIPTOR *EventDescriptor, 
 			 _GUID *ActivityId, 
@@ -84,7 +84,7 @@ Install Requirement:
 		)
 
 
-	5) EtwWrite passed my address on UserData and ... to MEMCPY
+	5)EtwWrite passed my address on UserData and ... to MEMCPY
 
 		# Child-SP          RetAddr           : Args to Child                                                           : Call Site
 		00 ffff8785`cae37388 fffff800`b48640fc : 00000000`00000000 00000000`00000000 fffff9bc`40a21000 ffff8785`cae374e0 : nt!memcpy+0x1e4
