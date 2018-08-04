@@ -1,22 +1,22 @@
 # Windows10X64-1803-POC
-1)Requirment
+1) Requirement
 
-Install Requirment:
+	Install Requirement:
 	
-	1) win10x64 1803 full update
-	
-	2) Any Application such as Kaspersky (kis19.0.0.1088aen_14170.exe) that set W32kEtwEnabledKeyword & 0x400 to 1
+		1) win10x64 1803 full update
+		
+		2) Any Application such as Kaspersky (kis19.0.0.1088aen_14170.exe) that set W32kEtwEnabledKeyword & 0x400 to 1
 
-2)Befor execute poc kapersky must be running and after that show BSOD 
+2) Before execute poc kaspersky must be running and after that show BSOD
 	
 	system service exception 
 	
-	what faild:win32kbase.dll	
+	what failed:win32kbase.dll	
 
-3)Analysis
+3) Analysis
 	
-	1)Registers
-		rdx is my address that passesd by NtUserSetWindowsHookEx
+	1) Registers
+		rdx is my address that passed by NtUserSetWindowsHookEx
 		1: kd> .cxr 0xffff8785cd67ef60
 
 		rax=0000000000000000 rbx=0000000000000000 rcx=0000000000000000
@@ -32,7 +32,7 @@ Install Requirment:
 
 		
 
-	2)Call Stack
+	2) Call Stack
 		0: kd> kv
 		 # Child-SP          RetAddr           : Args to Child                                                           : Call Site
 		00 ffff8785`cb19f950 fffff999`2aa4dfc2 : 00000000`00000000 00000000`0000ffff 00000000`00000000 fffff800`00000000 : win32kbase!EtwTraceAuditApiSetWindowsHookEx+0x37187
@@ -43,7 +43,7 @@ Install Requirment:
 		05 0000006b`0e1ff940 00007ffe`846b1551 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : KERNEL32!BaseThreadInitThunk+0x14
 		06 0000006b`0e1ff970 00000000`00000000 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : ntdll!RtlUserThreadStart+0x21
 
-	3)On the EtwTraceAuditApiSetWindowsHookEx, W32kEtwEnabledKeyword & 0x400 must be 1 to call win32kbase!McTemplateK0qzppq 
+	3) On the EtwTraceAuditApiSetWindowsHookEx, W32kEtwEnabledKeyword & 0x400 must be return 1 to call win32kbase!McTemplateK0qzppq 
 
 		char __fastcall EtwTraceAuditApiSetWindowsHookEx(char a1, __int64 a2, int a3)
 		{
@@ -75,7 +75,7 @@ Install Requirment:
 		  return result;
 		}
 
-	4)Afeter call the win32kbase!McTemplateK0qzppq methode the win32kbase!McGenEventWriteKM methode called that it is a wrapper for nt!EtwWrite
+	4) Afeter call the win32kbase!McTemplateK0qzppq methode the win32kbase!McGenEventWriteKM methode called that it is a wrapper for nt!EtwWrite
 		__int64 __fastcall EtwWrite(unsigned __int64 RegHandle,
 			 _EVENT_DESCRIPTOR *EventDescriptor, 
 			 _GUID *ActivityId, 
@@ -84,7 +84,7 @@ Install Requirment:
 		)
 
 
-	5)EtwWrite pass my address on UserData and ... to MEMCPY
+	5) EtwWrite passed my address on UserData and ... to MEMCPY
 
 		# Child-SP          RetAddr           : Args to Child                                                           : Call Site
 		00 ffff8785`cae37388 fffff800`b48640fc : 00000000`00000000 00000000`00000000 fffff9bc`40a21000 ffff8785`cae374e0 : nt!memcpy+0x1e4
