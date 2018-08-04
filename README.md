@@ -30,8 +30,9 @@ Install Requirement:
 		win32kbase!EtwTraceAuditApiSetWindowsHookEx+0x37187:
 		fffff999`2ae4f807 488b4a08        mov     rcx,qword ptr [rdx+8] ds:002b:00000000`00010007=???????????????? ;controlable address
 
-		
+
 	2)Call Stack
+	
 		0: kd> kv
 		 # Child-SP          RetAddr           : Args to Child                                                           : Call Site
 		00 ffff8785`cb19f950 fffff999`2aa4dfc2 : 00000000`00000000 00000000`0000ffff 00000000`00000000 fffff800`00000000 : win32kbase!EtwTraceAuditApiSetWindowsHookEx+0x37187
