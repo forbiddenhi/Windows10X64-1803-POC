@@ -10,6 +10,7 @@
 2) Before execute poc kaspersky must be running and after that show BSOD
 	
 	system service exception 
+	
 	what failed:win32kbase.dll	
 
 3) Analysis
