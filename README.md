@@ -1,8 +1,8 @@
 # Windows10X64-1803-POC
 1) Requirement
 
-Install Requirement:
-	
+	Install Requirement:
+
 	1) win10x64 1803 full update
 	
 	2) Any Application such as Kaspersky (kis19.0.0.1088aen_14170.exe) that set W32kEtwEnabledKeyword & 0x400 to 1
@@ -10,7 +10,6 @@ Install Requirement:
 2) Before execute poc kaspersky must be running and after that show BSOD
 	
 	system service exception 
-	
 	what failed:win32kbase.dll	
 
 3) Analysis
@@ -76,7 +75,7 @@ Install Requirement:
 		}
 
 	4)After call the win32kbase!McTemplateK0qzppq methode the win32kbase!McGenEventWriteKM methode called that it is a wrapper for nt!EtwWrite
-	
+
 		__int64 __fastcall EtwWrite(unsigned __int64 RegHandle,
 			 _EVENT_DESCRIPTOR *EventDescriptor, 
 			 _GUID *ActivityId, 
